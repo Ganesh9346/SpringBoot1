@@ -1,6 +1,7 @@
 package com.Ganesh.demo;
 
 import com.Ganesh.demo.dependencyInjection.OrderService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -18,6 +19,7 @@ public class DemoApplication {
 //		System.out.println(s1.getAge());
 		OrderService os=container.getBean(OrderService.class);
 		os.placeOrder();
+
 	}
 
 }

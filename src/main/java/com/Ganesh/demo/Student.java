@@ -1,7 +1,7 @@
 package com.Ganesh.demo;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-
 @Component
 public class Student {
     private String name;
@@ -10,9 +10,8 @@ public class Student {
     public Student(){
 
     }
-    public Student(int age, String name) {
-        this.age = age;
-        this.name = name;
+    public Student(@Value("${Student.name}") String name,@Value("${Student.age}") int age) {
+
     }
 
     public String getName() {

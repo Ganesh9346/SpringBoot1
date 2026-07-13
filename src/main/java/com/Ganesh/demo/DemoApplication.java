@@ -2,16 +2,19 @@ package com.Ganesh.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
 
 @SpringBootApplication
 public class DemoApplication {
 
 	public static void main(String[] args) {
 
-		SpringApplication.run(DemoApplication.class, args);
-		Student s=new Student(21,"Ram");
-		System.out.println(s.getAge());
-		System.out.println(s.getName());
+		ApplicationContext container= SpringApplication.run(DemoApplication.class, args);
+		Student s1=container.getBean(Student.class);
+		s1.setName("Ramu");
+		s1.setAge(22);
+		System.out.println(s1.getName());
+		System.out.println(s1.getAge());
 	}
 
 }

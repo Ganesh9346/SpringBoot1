@@ -18,10 +18,9 @@ public class MyPortfolio {
     @GetMapping("/skills")
     public String skills(){
         return """
-                <h3>I am Good at Building Backend Developemnt using spring and spring boot frame work</h3>
+                <h3>I am Good at Building Backend Developemnt using spring and spring boot framework</h3>
                 <h3>I know Programming languages such as C,Java,Java Script</h3>
-                <h3>Further more i also have a string knowledge in froentend developemnt using technologies as Java Script and React</h3>
-                
-                """
+                <h3>Further more i am also good at building machine learning and deep learning models using sklearn tensorflow libraries</h3>
+                """;
     }
 }

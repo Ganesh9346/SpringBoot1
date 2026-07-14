@@ -23,4 +23,12 @@ public class MyPortfolio {
                 <h3>Further more i am also good at building machine learning and deep learning models using sklearn tensorflow libraries</h3>
                 """;
     }
+    @GetMapping("/edu")
+    public String education(){
+        return """
+                <p>I Completed my class 10 and my intermediate in my home town which is in Tadipatri Ananthapur District AndhraPradesh
+                </p>
+                <p>Currently i am studying B Tech Final Year from Lovely Professional University Punjab</p>
+                """;
+    }
 }

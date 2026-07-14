@@ -18,9 +18,20 @@ public class MyPortfolio {
     @GetMapping("/skills")
     public String skills(){
         return """
-                <h3>I am Good at Building Backend Developemnt using spring and spring boot framework</h3>
-                <h3>I know Programming languages such as C,Java,Java Script</h3>
-                <h3>Further more i am also good at building machine learning and deep learning models using sklearn tensorflow libraries</h3>
+                <h1>Technical Skills</h1>
+                <ul>
+                <l1>Java</l1>
+                <l1>C</l1>
+                <l1>Java Script</l1>
+                <l1>Spring Boot</l1>
+                <l1>Spring mvc</l1>
+                <l1>Spring Data Jpa</l1>
+                <l1>React</l1>
+                <l1>Sklearn</l1>
+                <l1>Tensorflow</l1>
+                <l1>Power Bi</l1>
+                
+                </ul>
                 """;
     }
     @GetMapping("/edu")
@@ -29,6 +40,14 @@ public class MyPortfolio {
                 <p>I Completed my class 10 and my intermediate in my home town which is in Tadipatri Ananthapur District AndhraPradesh
                 </p>
                 <p>Currently i am studying B Tech Final Year from Lovely Professional University Punjab</p>
+                """;
+    }
+    @GetMapping("/Projects")
+    public String projects(){
+        return """
+        <p>I Build Projects releated to data science and machine learning One of them is Crop Recommendation System 
+        in which i trained machine learning and deep learining with around 5k records</p>
+        <p>Another Project in which i created Notes Sharing website Complete website i used html css java script react is used to build froentend for backend i used spring frame work</p>
                 """;
     }
 }

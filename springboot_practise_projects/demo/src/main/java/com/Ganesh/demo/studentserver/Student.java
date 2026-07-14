@@ -4,7 +4,7 @@ public class Student {
     int id;
     String name;
     int age;
-    String Department;
+    String department;
 
     public int getId() {
         return id;
@@ -31,10 +31,10 @@ public class Student {
     }
 
     public String getDepartment() {
-        return Department;
+        return department;
     }
 
     public void setDepartment(String department) {
-        Department = department;
+        this.department = department;
     }
 }

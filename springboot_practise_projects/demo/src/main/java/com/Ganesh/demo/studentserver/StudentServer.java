@@ -7,14 +7,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class StudentServer {
     //store the student
-    @PostMapping("/create")
-    public String storeStudent(@RequestBody Student student){
-        int id= student.getId();
-        String name=student.getName();
-        int age=student.getAge();
-        String department=student.getDepartment();
-        return id+name+age+department;
-    }
+//    @PostMapping("/create")
+//    public String storeStudent(@RequestBody Student student){
+//        int id= student.getId();
+//        String name=student.getName();
+//        int age=student.getAge();
+//        String department=student.getDepartment();
+//        return id+name+age+department;
+//    }
 
     //read the student
 

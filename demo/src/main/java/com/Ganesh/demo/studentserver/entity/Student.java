@@ -1,4 +1,4 @@
-package com.Ganesh.demo.studentserver;
+package com.Ganesh.demo.studentserver.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

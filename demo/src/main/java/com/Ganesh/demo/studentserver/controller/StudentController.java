@@ -1,10 +1,11 @@
-package com.Ganesh.demo.studentserver;
+package com.Ganesh.demo.studentserver.controller;
 
+import com.Ganesh.demo.studentserver.entity.Student;
+import com.Ganesh.demo.studentserver.service.StudentSevice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController

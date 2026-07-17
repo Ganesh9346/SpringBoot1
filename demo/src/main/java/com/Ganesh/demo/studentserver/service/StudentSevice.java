@@ -1,6 +1,7 @@
-package com.Ganesh.demo.studentserver;
+package com.Ganesh.demo.studentserver.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import com.Ganesh.demo.studentserver.entity.Student;
+import com.Ganesh.demo.studentserver.repository.StudentRepository;
 import org.springframework.stereotype.Service;
 
 @Service

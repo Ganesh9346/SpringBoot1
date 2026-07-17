@@ -23,6 +23,6 @@ public class StudentService {
     }
     public String updateData(Student s){
         sr.save(s);
-        return "data saved";
+        return "data saved successfully";
     }
 }

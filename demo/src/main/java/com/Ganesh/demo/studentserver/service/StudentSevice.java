@@ -26,6 +26,6 @@ public class StudentSevice {
     }
     public String SaveData(Student s){
         sr.save(s);
-        return "Saved";
+        return "Saved data";
     }
 }

@@ -11,12 +11,13 @@ import java.util.List;
 public class StudentController2 {
     @Autowired
     StudentService studentservice;
-    @PostMapping("/upload")
+    @CrossOrigin
+    @PostMapping("/create")
     public String uploadStudent(@RequestBody Student student){
         studentservice.uploadData(student);
         return "uploaded";
     }
-    @GetMapping("/get")
+    @GetMapping("/getStudent")
     public List<Student> getStudents(){
         return studentservice.displayStudents();
     }
@@ -27,6 +28,11 @@ public class StudentController2 {
     @PutMapping("/update")
     public String update(@RequestBody Student s){
         return studentservice.updateData(s);
+    }
+    @CrossOrigin
+    @GetMapping("/getStudent/{id}")
+    public Student getStudent(@PathVariable int id){
+        return studentservice.getStudentById(id);
     }
 
 

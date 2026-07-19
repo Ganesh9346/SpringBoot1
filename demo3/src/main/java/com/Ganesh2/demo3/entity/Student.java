@@ -23,7 +23,7 @@ public class Student {
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
-    Student() {
+    public Student() {
 
     }
     public Student(int id, String name, String department) {

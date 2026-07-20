@@ -1,6 +1,7 @@
 package com.exampleDTO.demo4.controller;
 
 import com.exampleDTO.demo4.DTO.CreateStudentRequestDTO;
+import com.exampleDTO.demo4.DTO.CreateStudentUpdateRequestDTO;
 import com.exampleDTO.demo4.entity.Student;
 import com.exampleDTO.demo4.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,13 +46,9 @@ public class StudentController {
     }
     @CrossOrigin
     @PutMapping("/updateStudent/{id}")
-    public ResponseEntity<?> updateStudentId(@RequestBody Student student, @PathVariable int id){
+    public ResponseEntity<?> updateStudentId(@RequestBody CreateStudentUpdateRequestDTO up, @PathVariable int id){
 
-        System.out.println("Controller reached");
-        System.out.println(student.getName());
-        System.out.println(student.getAge());
-        System.out.println(student.getDep());
-        return new ResponseEntity<>(ss.updateStudentById(student,id),HttpStatus.OK);
+        return new ResponseEntity<>(ss.updateStudentById(up,id),HttpStatus.OK);
     }
     @CrossOrigin
     @DeleteMapping("/deleteStudent/{id}")

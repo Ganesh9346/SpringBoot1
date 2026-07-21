@@ -35,15 +35,19 @@ public class StudentController {
 
         return new ResponseEntity<>(ss.uploadStudent(csrd), HttpStatus.OK);
     }
+
     @CrossOrigin
     @GetMapping("/getStudent/{id}")
     public ResponseEntity<?> getStudentById(@PathVariable int id){
         Student s=ss.getStudentbyid(id);
         if(s==null){
-            return new ResponseEntity<>("data not found",HttpStatus.NOT_FOUND);
+            throw new RuntimeException("Student not found");
         }
         return new ResponseEntity<>(s,HttpStatus.OK);
     }
+
+
+
     @CrossOrigin
     @PutMapping("/updateStudent/{id}")
     public ResponseEntity<?> updateStudentId(@RequestBody CreateStudentUpdateRequestDTO up, @PathVariable int id){

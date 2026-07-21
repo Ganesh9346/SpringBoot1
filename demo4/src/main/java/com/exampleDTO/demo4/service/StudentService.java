@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class StudentService {
@@ -19,7 +20,7 @@ public class StudentService {
         return s;
     }
 
-    public CreateStudentRequestDTO uploadStudent(CreateStudentRequestDTO csrd) {
+    public CreateStudentRequestDTO uploadStudent(CreateStudentRequestDTO csrd){
         Student student=mapToStudent(csrd);
 
         sr.save(student);
@@ -29,7 +30,9 @@ public class StudentService {
     }
 
 
-    public Student getStudentbyid(int id) {
+    public Student getStudentbyid(int id){
+//        Optional<Student> s= sr.findById(id);
+//        return s.get();
         return sr.findById(id).orElse(null);
     }
 

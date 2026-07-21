@@ -9,6 +9,7 @@ public class CreateStudentRequestDTO {
     private String name;
     private String department;
     private Integer age;
+    private String email;
 
 
 }

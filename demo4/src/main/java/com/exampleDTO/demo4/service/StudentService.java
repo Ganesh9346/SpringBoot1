@@ -3,6 +3,7 @@ package com.exampleDTO.demo4.service;
 import com.exampleDTO.demo4.DTO.CreateStudentRequestDTO;
 import com.exampleDTO.demo4.DTO.CreateStudentUpdateRequestDTO;
 import com.exampleDTO.demo4.DTO.CreateStudentUpdateResponceDTO;
+import com.exampleDTO.demo4.Exception.EmailAlreadyExistsException;
 import com.exampleDTO.demo4.entity.Student;
 import com.exampleDTO.demo4.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,9 @@ public class StudentService {
 
     public CreateStudentRequestDTO uploadStudent(CreateStudentRequestDTO csrd){
         Student student=mapToStudent(csrd);
-
+        if(sr.existsByEmail(student.getEmail())){
+            throw new EmailAlreadyExistsException("Email already exists");
+        }
         sr.save(student);
        CreateStudentRequestDTO csr=mapToResponseDTO(student);
        return csr;
@@ -64,6 +67,7 @@ public class StudentService {
         s1.setName(studentdto.getName());
         s1.setAge(studentdto.getAge());
         s1.setDep(studentdto.getDepartment());
+        s1.setEmail(studentdto.getEmail());
         return s1;
 
     }
@@ -79,6 +83,8 @@ public class StudentService {
         csr.setName(s1.getName());
         csr.setAge(s1.getAge());
         csr.setDepartment(s1.getDep());
+        csr.setEmail(s1.getEmail());
+
         return csr;
     }
 }

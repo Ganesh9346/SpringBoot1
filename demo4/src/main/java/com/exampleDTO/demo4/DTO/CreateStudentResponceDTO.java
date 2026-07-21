@@ -8,6 +8,7 @@ import lombok.Setter;
 public class CreateStudentResponceDTO {
     private String name;
     private String department;
+    private String email;
 
     private Integer age;
 }

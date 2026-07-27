@@ -11,21 +11,26 @@ import java.time.LocalDateTime;
 
 @RestControllerAdvice
 public class GlobalException {
-    @ExceptionHandler(RuntimeException.class)
-    public ResponseEntity<ExceptionResponceDTO> handleRunExcutionException(RuntimeException e, HttpServletRequest req){
-        ExceptionResponceDTO exceptionResponseDTO = new ExceptionResponceDTO(
-                LocalDateTime.now(),
-                HttpStatus.NOT_FOUND.value(),
-                HttpStatus.NOT_FOUND.getReasonPhrase(),
-                e.getMessage(),
-                req.getRequestURI()
-        );
-        return ResponseEntity.status(500).body(exceptionResponseDTO);
-    }
+//    @ExceptionHandler(RuntimeException.class)
+//    public ResponseEntity<ExceptionResponceDTO> handleRunExcutionException(RuntimeException e, HttpServletRequest req){
+//        ExceptionResponceDTO exceptionResponseDTO = new ExceptionResponceDTO(
+//                LocalDateTime.now(),
+//                HttpStatus.NOT_FOUND.value(),
+//                HttpStatus.NOT_FOUND.getReasonPhrase(),
+//                e.getMessage(),
+//                req.getRequestURI()
+//        );
+//        return ResponseEntity.status(500).body(exceptionResponseDTO);
+//    }
+//
+//    @ExceptionHandler(Exception.class)
+//    public ResponseEntity<String> handleException(Exception e) {
+//        return ResponseEntity.status(5000).body(e.getMessage());
+//
+//    }
 
-    @ExceptionHandler(Exception.class)
-    public ResponseEntity<String> handleException(Exception e) {
-        return ResponseEntity.status(5000).body(e.getMessage());
-
+    @ExceptionHandler(StudentNotFoundException.class)
+    public ResponseEntity<?> getResponce(StudentNotFoundException e){
+        return new ResponseEntity<>("No Student avaliable", HttpStatus.NOT_FOUND);
     }
 }

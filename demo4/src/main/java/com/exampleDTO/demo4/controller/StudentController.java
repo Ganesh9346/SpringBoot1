@@ -2,12 +2,14 @@ package com.exampleDTO.demo4.controller;
 
 import com.exampleDTO.demo4.DTO.CreateStudentRequestDTO;
 import com.exampleDTO.demo4.DTO.CreateStudentUpdateRequestDTO;
+import com.exampleDTO.demo4.Exception.StudentNotFoundException;
 import com.exampleDTO.demo4.entity.Student;
 import com.exampleDTO.demo4.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.method.annotation.HandlerMethodValidationException;
 
 import java.util.List;
 
@@ -21,6 +23,7 @@ public class StudentController {
         List<Student> student=ss.getAllStudents();
         if(student.isEmpty()){
             return new ResponseEntity<>("no students are there",HttpStatus.NOT_FOUND);
+
         }
         return new ResponseEntity<>(ss.getAllStudents(), HttpStatus.OK);
     }
@@ -38,11 +41,9 @@ public class StudentController {
 
     @CrossOrigin
     @GetMapping("/getStudent/{id}")
-    public ResponseEntity<?> getStudentById(@PathVariable int id){
+    public ResponseEntity<?> getStudentById(@PathVariable int id) throws StudentNotFoundException {
         Student s=ss.getStudentbyid(id);
-        if(s==null){
-            throw new RuntimeException("Student not found");
-        }
+
         return new ResponseEntity<>(s,HttpStatus.OK);
     }
 

@@ -4,6 +4,7 @@ import com.exampleDTO.demo4.DTO.CreateStudentRequestDTO;
 import com.exampleDTO.demo4.DTO.CreateStudentUpdateRequestDTO;
 import com.exampleDTO.demo4.DTO.CreateStudentUpdateResponceDTO;
 import com.exampleDTO.demo4.Exception.EmailAlreadyExistsException;
+import com.exampleDTO.demo4.Exception.StudentNotFoundException;
 import com.exampleDTO.demo4.entity.Student;
 import com.exampleDTO.demo4.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,10 +34,14 @@ public class StudentService {
     }
 
 
-    public Student getStudentbyid(int id){
+    public Student getStudentbyid(int id) throws StudentNotFoundException {
 //        Optional<Student> s= sr.findById(id);
 //        return s.get();
-        return sr.findById(id).orElse(null);
+        Student s=sr.findById(id).orElse(null);
+        if(s==null){
+            throw new StudentNotFoundException("Student not found");
+        }
+        return s;
     }
 
     public CreateStudentUpdateResponceDTO updateStudentById(CreateStudentUpdateRequestDTO updateRequestDTO, int id) {

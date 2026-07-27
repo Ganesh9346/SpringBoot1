@@ -186,21 +186,21 @@ public class SecurityConfig {
 
 // JWT-------------------------------------------------------------------------------
 
-//@Configuration
-//public class SecurityConfig {
-//    @Bean
-//    public SecurityFilterChain security(HttpSecurity http) throws Exception {
-//        http.csrf(csrf -> csrf.disable())
-//                .authorizeHttpRequests(auth -> auth
-//                        .anyRequest()
-//                        .permitAll()
-//                )
-//                .formLogin(Customizer.withDefaults());
-//        return http.build();
-//    }
-//
-//    @Bean
-//    public PasswordEncoder passwordEncoder() {
-//        return new BCryptPasswordEncoder();
-//    }
-//}
+@Configuration
+public class SecurityConfig {
+    @Bean
+    public SecurityFilterChain security(HttpSecurity http) throws Exception {
+        http.csrf(csrf -> csrf.disable())
+                .authorizeHttpRequests(auth -> auth
+                        .anyRequest()
+                        .permitAll()
+                )
+                .formLogin(Customizer.withDefaults());
+        return http.build();
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+}

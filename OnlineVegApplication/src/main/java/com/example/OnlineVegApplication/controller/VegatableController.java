@@ -11,31 +11,28 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/veg")
+@CrossOrigin
 public class VegatableController {
     @Autowired
     VegatableService vs;
-    @CrossOrigin
     @GetMapping("/get")
     public ResponseEntity<List<vegatable>> display(){
         return new ResponseEntity<>(vs.display_vegatables(),HttpStatus.OK);
     }
     @PostMapping("/post")
-    @CrossOrigin
     public ResponseEntity<?> uploadVegetables(@RequestBody vegatable v){
         return new ResponseEntity<>(vs.uploaddata(v),HttpStatus.OK);
     }
     @PutMapping("/put/{id}")
-    @CrossOrigin
     public ResponseEntity<?> updateVegetable(@RequestBody vegatable v, @PathVariable int id){
         return new ResponseEntity<>(vs.update(id,v),HttpStatus.OK);
     }
     @DeleteMapping("/delete/{id}")
-    @CrossOrigin
     public ResponseEntity<?> deleteItem(@PathVariable int id){
         return new ResponseEntity<>(vs.deleteItem(id),HttpStatus.OK);
     }
     @GetMapping("/getVegetable/{id}")
-    @CrossOrigin
     public ResponseEntity<?> getVegetable(@PathVariable int id){
         return new ResponseEntity<>(vs.getVeg(id), HttpStatus.OK);
     }

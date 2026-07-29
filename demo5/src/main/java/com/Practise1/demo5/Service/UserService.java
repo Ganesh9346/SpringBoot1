@@ -1,7 +1,8 @@
-package com.exampleDTO.demo4.service;
+package com.Practise1.demo5.Service;
 
-import com.exampleDTO.demo4.entity.User;
-import com.exampleDTO.demo4.repository.UserRepository;
+
+import com.Practise1.demo5.Entity.User;
+import com.Practise1.demo5.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

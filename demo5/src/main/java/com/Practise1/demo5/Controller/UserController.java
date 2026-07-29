@@ -1,7 +1,8 @@
-package com.exampleDTO.demo4.controller;
+package com.Practise1.demo5.Controller;
 
-import com.exampleDTO.demo4.entity.User;
-import com.exampleDTO.demo4.service.UserService;
+
+import com.Practise1.demo5.Entity.User;
+import com.Practise1.demo5.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;

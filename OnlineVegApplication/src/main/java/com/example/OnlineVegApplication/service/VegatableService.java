@@ -27,7 +27,11 @@ public class VegatableService {
         if(v1==null){
             throw new RuntimeException("Item Not Found");
         }
-        vr.save(v2);
+        v1.setName(v2.getName());
+        v1.setDescription(v2.getDescription());
+        v1.setLocation(v2.getLocation());
+
+        vr.save(v1);
         return "Update Successfully";
 
     }

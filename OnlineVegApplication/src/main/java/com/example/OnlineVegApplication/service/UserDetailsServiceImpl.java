@@ -1,9 +1,8 @@
-package com.exampleDTO.demo4.service;
+package com.example.OnlineVegApplication.service;
 
-
-import com.exampleDTO.demo4.repository.UserRepository;
+import com.example.OnlineVegApplication.entity.User;
+import com.example.OnlineVegApplication.repository.AuthRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -13,16 +12,19 @@ import org.springframework.stereotype.Service;
 public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
-    private UserRepository userRepository;
+    private AuthRepository authRepository;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-        com.exampleDTO.demo4.entity.User user = userRepository.findByUserName(username)
-                .orElseThrow(() -> new UsernameNotFoundException("Username not found: " + username));
-        return org.springframework.security.core.userdetails.User.withUsername(user.getUserName())
+        User user = authRepository.findByUserName(username)
+                .orElseThrow(() -> new UsernameNotFoundException("User Not Found"));
+
+        return org.springframework.security.core.userdetails.User
+                .builder()
+                .username(user.getUserName())
                 .password(user.getPassword())
-                .roles(user.getRoles().toArray(new String[0]))
+                .roles("USER")
                 .build();
     }
 }

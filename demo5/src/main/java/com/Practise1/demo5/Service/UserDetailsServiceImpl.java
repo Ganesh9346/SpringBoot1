@@ -1,7 +1,8 @@
-package com.exampleDTO.demo4.service;
+package com.Practise1.demo5.Service;
 
 
-import com.exampleDTO.demo4.repository.UserRepository;
+import com.Practise1.demo5.Repository.UserRepository;
+import org.jspecify.annotations.NonNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,10 +17,11 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     private UserRepository userRepository;
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(@NonNull String username) throws UsernameNotFoundException {
 
-        com.exampleDTO.demo4.entity.User user = userRepository.findByUserName(username)
-                .orElseThrow(() -> new UsernameNotFoundException("Username not found: " + username));
+        com.Practise1.demo5.Entity.User user;
+        user = userRepository.findByUserName(username)
+                .orElseThrow();
         return org.springframework.security.core.userdetails.User.withUsername(user.getUserName())
                 .password(user.getPassword())
                 .roles(user.getRoles().toArray(new String[0]))
